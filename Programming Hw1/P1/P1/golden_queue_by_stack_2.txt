@@ -1,0 +1,100 @@
+Stack1: , Stack2: >>Node1
+Stack1: , Stack2: 
+Stack1: , Stack2: >>Node2
+Stack1: , Stack2: >>Node2>>Node3
+Stack1: >>Node3, Stack2: 
+Stack1: , Stack2: 
+Stack1: , Stack2: >>Node4
+Stack1: , Stack2: 
+Stack1: , Stack2: >>Node5
+Stack1: , Stack2: >>Node5>>Node6
+Stack1: >>Node6, Stack2: 
+Stack1: >>Node6, Stack2: >>Node7
+Stack1: >>Node6, Stack2: >>Node7>>Node8
+Stack1: >>Node6, Stack2: >>Node7>>Node8>>Node9
+Stack1: >>Node6, Stack2: >>Node7>>Node8>>Node9>>Node10
+Stack1: , Stack2: >>Node7>>Node8>>Node9>>Node10
+Stack1: , Stack2: >>Node7>>Node8>>Node9>>Node10>>Node11
+Stack1: , Stack2: >>Node7>>Node8>>Node9>>Node10>>Node11>>Node12
+Stack1: >>Node12>>Node11>>Node10>>Node9>>Node8, Stack2: 
+Stack1: >>Node12>>Node11>>Node10>>Node9, Stack2: 
+Stack1: >>Node12>>Node11>>Node10, Stack2: 
+Stack1: >>Node12>>Node11>>Node10, Stack2: >>Node13
+Stack1: >>Node12>>Node11, Stack2: >>Node13
+Stack1: >>Node12, Stack2: >>Node13
+Stack1: , Stack2: >>Node13
+Stack1: , Stack2: 
+Stack1: , Stack2: >>Node14
+Stack1: , Stack2: 
+Stack1: , Stack2: >>Node15
+Stack1: , Stack2: 
+Stack1: , Stack2: >>Node16
+Stack1: , Stack2: >>Node16>>Node17
+Stack1: , Stack2: >>Node16>>Node17>>Node18
+Stack1: , Stack2: >>Node16>>Node17>>Node18>>Node19
+Stack1: >>Node19>>Node18>>Node17, Stack2: 
+Stack1: >>Node19>>Node18, Stack2: 
+Stack1: >>Node19>>Node18, Stack2: >>Node20
+Stack1: >>Node19, Stack2: >>Node20
+Stack1: >>Node19, Stack2: >>Node20>>Node21
+Stack1: >>Node19, Stack2: >>Node20>>Node21>>Node22
+Stack1: , Stack2: >>Node20>>Node21>>Node22
+Stack1: , Stack2: >>Node20>>Node21>>Node22>>Node23
+Stack1: >>Node23>>Node22>>Node21, Stack2: 
+Stack1: >>Node23>>Node22>>Node21, Stack2: >>Node24
+Stack1: >>Node23>>Node22, Stack2: >>Node24
+Stack1: >>Node23>>Node22, Stack2: >>Node24>>Node25
+Stack1: >>Node23>>Node22, Stack2: >>Node24>>Node25>>Node26
+Stack1: >>Node23, Stack2: >>Node24>>Node25>>Node26
+Stack1: >>Node23, Stack2: >>Node24>>Node25>>Node26>>Node27
+Stack1: , Stack2: >>Node24>>Node25>>Node26>>Node27
+Stack1: , Stack2: >>Node24>>Node25>>Node26>>Node27>>Node28
+Stack1: >>Node28>>Node27>>Node26>>Node25, Stack2: 
+Stack1: >>Node28>>Node27>>Node26>>Node25, Stack2: >>Node29
+Stack1: >>Node28>>Node27>>Node26>>Node25, Stack2: >>Node29>>Node30
+Stack1: >>Node28>>Node27>>Node26>>Node25, Stack2: >>Node29>>Node30>>Node31
+Stack1: >>Node28>>Node27>>Node26>>Node25, Stack2: >>Node29>>Node30>>Node31>>Node32
+Stack1: >>Node28>>Node27>>Node26>>Node25, Stack2: >>Node29>>Node30>>Node31>>Node32>>Node33
+Stack1: >>Node28>>Node27>>Node26>>Node25, Stack2: >>Node29>>Node30>>Node31>>Node32>>Node33>>Node34
+Stack1: >>Node28>>Node27>>Node26, Stack2: >>Node29>>Node30>>Node31>>Node32>>Node33>>Node34
+Stack1: >>Node28>>Node27>>Node26, Stack2: >>Node29>>Node30>>Node31>>Node32>>Node33>>Node34>>Node35
+Stack1: >>Node28>>Node27>>Node26, Stack2: >>Node29>>Node30>>Node31>>Node32>>Node33>>Node34>>Node35>>Node36
+Stack1: >>Node28>>Node27>>Node26, Stack2: >>Node29>>Node30>>Node31>>Node32>>Node33>>Node34>>Node35>>Node36>>Node37
+Stack1: >>Node28>>Node27>>Node26, Stack2: >>Node29>>Node30>>Node31>>Node32>>Node33>>Node34>>Node35>>Node36>>Node37>>Node38
+Stack1: >>Node28>>Node27, Stack2: >>Node29>>Node30>>Node31>>Node32>>Node33>>Node34>>Node35>>Node36>>Node37>>Node38
+Stack1: >>Node28>>Node27, Stack2: >>Node29>>Node30>>Node31>>Node32>>Node33>>Node34>>Node35>>Node36>>Node37>>Node38>>Node39
+Stack1: >>Node28>>Node27, Stack2: >>Node29>>Node30>>Node31>>Node32>>Node33>>Node34>>Node35>>Node36>>Node37>>Node38>>Node39>>Node40
+Stack1: >>Node28, Stack2: >>Node29>>Node30>>Node31>>Node32>>Node33>>Node34>>Node35>>Node36>>Node37>>Node38>>Node39>>Node40
+Stack1: , Stack2: >>Node29>>Node30>>Node31>>Node32>>Node33>>Node34>>Node35>>Node36>>Node37>>Node38>>Node39>>Node40
+Stack1: >>Node40>>Node39>>Node38>>Node37>>Node36>>Node35>>Node34>>Node33>>Node32>>Node31>>Node30, Stack2: 
+Stack1: >>Node40>>Node39>>Node38>>Node37>>Node36>>Node35>>Node34>>Node33>>Node32>>Node31, Stack2: 
+Stack1: >>Node40>>Node39>>Node38>>Node37>>Node36>>Node35>>Node34>>Node33>>Node32>>Node31, Stack2: >>Node41
+Stack1: >>Node40>>Node39>>Node38>>Node37>>Node36>>Node35>>Node34>>Node33>>Node32, Stack2: >>Node41
+Stack1: >>Node40>>Node39>>Node38>>Node37>>Node36>>Node35>>Node34>>Node33>>Node32, Stack2: >>Node41>>Node42
+Stack1: >>Node40>>Node39>>Node38>>Node37>>Node36>>Node35>>Node34>>Node33, Stack2: >>Node41>>Node42
+Stack1: >>Node40>>Node39>>Node38>>Node37>>Node36>>Node35>>Node34>>Node33, Stack2: >>Node41>>Node42>>Node43
+Stack1: >>Node40>>Node39>>Node38>>Node37>>Node36>>Node35>>Node34, Stack2: >>Node41>>Node42>>Node43
+Stack1: >>Node40>>Node39>>Node38>>Node37>>Node36>>Node35>>Node34, Stack2: >>Node41>>Node42>>Node43>>Node44
+Stack1: >>Node40>>Node39>>Node38>>Node37>>Node36>>Node35>>Node34, Stack2: >>Node41>>Node42>>Node43>>Node44>>Node45
+Stack1: >>Node40>>Node39>>Node38>>Node37>>Node36>>Node35>>Node34, Stack2: >>Node41>>Node42>>Node43>>Node44>>Node45>>Node46
+Stack1: >>Node40>>Node39>>Node38>>Node37>>Node36>>Node35>>Node34, Stack2: >>Node41>>Node42>>Node43>>Node44>>Node45>>Node46>>Node47
+Stack1: >>Node40>>Node39>>Node38>>Node37>>Node36>>Node35, Stack2: >>Node41>>Node42>>Node43>>Node44>>Node45>>Node46>>Node47
+Stack1: >>Node40>>Node39>>Node38>>Node37>>Node36, Stack2: >>Node41>>Node42>>Node43>>Node44>>Node45>>Node46>>Node47
+Stack1: >>Node40>>Node39>>Node38>>Node37, Stack2: >>Node41>>Node42>>Node43>>Node44>>Node45>>Node46>>Node47
+Stack1: >>Node40>>Node39>>Node38, Stack2: >>Node41>>Node42>>Node43>>Node44>>Node45>>Node46>>Node47
+Stack1: >>Node40>>Node39, Stack2: >>Node41>>Node42>>Node43>>Node44>>Node45>>Node46>>Node47
+Stack1: >>Node40, Stack2: >>Node41>>Node42>>Node43>>Node44>>Node45>>Node46>>Node47
+Stack1: >>Node40, Stack2: >>Node41>>Node42>>Node43>>Node44>>Node45>>Node46>>Node47>>Node48
+Stack1: , Stack2: >>Node41>>Node42>>Node43>>Node44>>Node45>>Node46>>Node47>>Node48
+Stack1: , Stack2: >>Node41>>Node42>>Node43>>Node44>>Node45>>Node46>>Node47>>Node48>>Node49
+Stack1: >>Node49>>Node48>>Node47>>Node46>>Node45>>Node44>>Node43>>Node42, Stack2: 
+Stack1: >>Node49>>Node48>>Node47>>Node46>>Node45>>Node44>>Node43, Stack2: 
+Stack1: >>Node49>>Node48>>Node47>>Node46>>Node45>>Node44, Stack2: 
+Stack1: >>Node49>>Node48>>Node47>>Node46>>Node45>>Node44, Stack2: >>Node50
+Stack1: >>Node49>>Node48>>Node47>>Node46>>Node45>>Node44, Stack2: >>Node50>>Node51
+Stack1: >>Node49>>Node48>>Node47>>Node46>>Node45>>Node44, Stack2: >>Node50>>Node51>>Node52
+Stack1: >>Node49>>Node48>>Node47>>Node46>>Node45, Stack2: >>Node50>>Node51>>Node52
+Stack1: >>Node49>>Node48>>Node47>>Node46, Stack2: >>Node50>>Node51>>Node52
+Stack1: >>Node49>>Node48>>Node47, Stack2: >>Node50>>Node51>>Node52
+Stack1: >>Node49>>Node48>>Node47, Stack2: >>Node50>>Node51>>Node52>>Node53
+Stack1: >>Node49>>Node48, Stack2: >>Node50>>Node51>>Node52>>Node53
