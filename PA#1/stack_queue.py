@@ -29,6 +29,10 @@ class MyStack(object):
             # Connect root >> the second last element
             # Return the last element value
             # ---
+            node = self.root.down
+            self.root.down = node.down
+            node.down = None
+            return node
 
     def push(self, node):
         self.num_element += 1
@@ -36,11 +40,13 @@ class MyStack(object):
         # Connect the last element >> inserted node
         # Connect the inserted node >> root
         # ---
+        node.down = self.root.down
+        self.root.down = node
 
     def __repr__(self):
         ret = ''
         node = self.root.down
-        while node != None:
+        while node is not None:
             ret = '>>' + str(node) + ret
             node = node.down
         return ret
@@ -65,6 +71,10 @@ class MyQueue(object):
             # if num_element == 0, connect end << root
             # Return the first element value
             # ---
+            node = self.root.down
+            self.root.down = node.down
+            if self.root.down is None:
+                self.end = self.root
 
     def push(self, node):
         self.num_element += 1
@@ -72,11 +82,15 @@ class MyQueue(object):
         # Connect the last element >> inserted node
         # Connect the end << inserted node
         # ---
+        if self.root.down is None:
+            self.root.down = node
+        self.end.down = node
+        self.end = node
 
     def __repr__(self):
         ret = ''
         node = self.root.down
-        while node != None:
+        while node is not None:
             ret = ret + '>>' + str(node)
             node = node.down
         return ret
@@ -96,12 +110,20 @@ class MyQueue_By_MyStack(object):
             # ---TODO:
             # Pop the first element
             # ---
+            if self.stack1.root.down is not None:
+                self.stack1.pop()
+            else:
+                while self.stack2.root.down is not None:
+                    node = self.stack2.pop()
+                    self.stack1.push(node)
+                self.stack1.pop()
 
     def push(self, node):
         self.num_element += 1
         # ---TODO:
         # Push the inserted node to the end of the queue
         # ---
+        self.stack2.push(node)
 
     def __repr__(self):
         ret = 'Stack1: ' + str(self.stack1) + ', Stack2: ' + str(self.stack2)
