@@ -46,10 +46,34 @@
 
 \begin{enumerate}
     \item[(a)]
-        
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{Soda.png}
+            \caption{Binarytree}
+        \end{figure}
+
     \item[(b)]
+        Note that the recurrence occurs in countRec function.
+        We want to find that how much times the function runs.
+        $$countRec(sodas, bottle) = countRec(sodas \% bottle + sodas // bottle, bottle) + O(1)$$
+        If $sodas < bottle$, the recurrence ends. The primitive number of soda is $\frac{M}{P}$.
+        Consider the equation $\frac{M}{P} = \sum_{k=1}^{n}a_{k}B^{k} + r_1$ with $a_k < B, r < B$. 
         
-    
+        The second input is $\sum_{k=1}^{n-1}a_{k+1}B^{k} + b_1B + r_2$ where $b_1B+r_2 = a_1+r_1$.
+        
+        The third input is $\sum_{k=1}^{n-2}a_{k+2}B^{k} + b_2B + r_3$ where $b_2B + r_3 = a_2 + b_1 + r_2$.
+
+        Then we can find the n-th input is $a_n + b_{n-1}B + r_n$ where $b_{n-1}B + r_n = a_{n-1} + b_{n-2} + r_{n-1}$.
+        
+        Note that $a_n, b_{n-1}, r_{n} < B$, there are some choice:
+        \begin{enumerate}
+            \item[1. ] $a_n+b_{n-1}+r_{n}<B$ : The function runs n times.
+            \item[2. ] $a_n+b_{n-1}+r_{n} = mB+k$ but $m+k<B$ : The function runs n+1 times.
+            \item[3. ] $a_n+b_{n-1}+r_{n} = mB+k$ and $m+k>B$ : The function runs n+2 times.
+        \end{enumerate}
+        Hence the time complexity is decided by $n$, and 
+        $$n = \left\lfloor \log_{B}(\frac{M}{P})\right\rfloor $$
+        The time complexity is $O(\log_{B}(\frac{M}{P}))$.
 \end{enumerate}
 
 \section{AVL Tree}    
@@ -189,6 +213,14 @@
 \end{enumerate}
 
 \section{Problem 6}
+
+In-order traversal will follow the rule (Left child tree $\rightarrow $ Root $\rightarrow $ Right child tree).
+
+$\Rightarrow$ part: We call the BST T. T has the structure $L-x-R$ with $L < x < R$. By the definition of in-order traversal, it follows $L \rightarrow x \rightarrow R$.
+Then it is sorted in ascending order.
+
+$\Leftarrow$ part: In-order traversal is sorted in ascending order. With in-order traversal, we can struct a tree T with $L-x-R$.
+Since in-order traversal is sorted in ascending order, we have $L < x < R$. Hence the tree T is a binary search tree.
 
 
 \end{document}
