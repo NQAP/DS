@@ -86,11 +86,29 @@
 
 \begin{enumerate}
     \item[(a)] 
-        
+        I think stack is the great data structure to confirm whether the parentheses are balanced.
+        If we want to confirm whether the parentheses are balanced, we need to check if some illegal mark is inside of the small order ones. 
+        The pop function in stack is to pop the last element, so that we can know now we are in which order. 
+        If the order of the next element we popped is not illegal, we can find it easily.
+
     \item[(b)]
-        
+        15 permutations.
+       \{\}[](), \{\}()[], []\{\}(), []()\{\}, ()\{\}[], ()[]\{\}
+
+       \{[]\}(), ()\{[]\}, \{()\}[], []\{()\}, \{\}[()], [()]\{\}
+
+       \{[]()\}, \{()[]\}, \{[()]\}
+
     \item[(c)]
+        Consider the order : (1), [2], \{3\}. Now save the permutations as a stack.
         
+        \begin{enumerate}
+            \item[1.] Pop, save the element. \\
+                Record its minimum order and each number appear times.
+            \item[2.] Pop.\\ 
+                If the element is ( ),],\}) check if the element order is equal or less than the minimum order. If it's legal, record its order in list and its appear times+1.\\
+                If the element is ( (, [, \{), the appear times of its order-1, then update its minimum order.
+        \end{enumerate}
 \end{enumerate}
 
 \section{Complexity Analysis}
