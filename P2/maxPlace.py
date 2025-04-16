@@ -52,10 +52,10 @@ def Ver_1D_increase(map_array:list[int])-> int:
     # Representing land heights from left to right.
     max_area = 0
     # TODO: return the max area
-    
-    
-
-
+    n = len(map_array)
+    for i in map_array:
+        max_area = max(max_area, i * n)
+        n = n - 1
     return max_area 
 
 def Ver_1D_general(map_array:list[int])-> int:
@@ -66,8 +66,43 @@ def Ver_1D_general(map_array:list[int])-> int:
     # TODO: return max rectangle area
     stack_value = Stack() #You may decide whether to use the stack or not.
     stack_index = Stack()
-
-
+    n = len(map_array)
+    for i in range(n):
+        val_node = Node(None)
+        val_node.value = map_array[i]
+        val_node.prev = None
+        idx_node = Node(None)
+        idx_node.value = i
+        idx_node.prev = None
+        if stack_value.size < 1:
+            if map_array[i] == 0:
+                continue
+            stack_value.push(val_node)
+            stack_index.push(idx_node)
+        elif map_array[i] > stack_value.peak():
+            stack_value.push(val_node)
+            stack_index.push(idx_node)
+        elif map_array[i] < stack_value.peak():
+            while map_array[i] < stack_value.peak():
+                val = stack_value.pop()
+                idx = stack_index.pop()
+                max_area = max(max_area, val * (i - idx))
+                idx_node.value = idx
+                if stack_value.size < 1:
+                    break
+            if stack_value.size < 1:
+                if map_array[i] == 0:
+                    continue
+                stack_value.push(val_node)
+                stack_index.push(idx_node)
+            elif map_array[i] > stack_value.peak():
+                stack_value.push(val_node)
+                stack_index.push(idx_node)
+    
+    while stack_value.size > 0:
+        val = stack_value.pop()
+        idx = stack_index.pop()
+        max_area = max(max_area, val * (n - idx))
 
     return max_area 
 
@@ -79,6 +114,13 @@ def Ver_2D(city_map:list[list[int]])-> int:
     # Hint: can simplify each column as Ver_1D_general case.
     max_area = 0
     # TODO: return max rectangle area
-    
-
+    n = len(city_map[0])
+    Gen_1D = [0] * n
+    for city_list in city_map:
+        for i in range(len(city_list)):
+            if city_list[i] == 0:
+                Gen_1D[i] = 0
+            else:
+                Gen_1D[i] = Gen_1D[i] + 1
+        max_area = max(max_area, Ver_1D_general(Gen_1D))
     return max_area
