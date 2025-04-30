@@ -1,0 +1,103 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{interval}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{subfigure}
+% \usepackage{algorithm}
+\usepackage[linesnumbered,boxed]{algorithm2e}
+% \usepackage{algorithmic}
+\usepackage[noend]{algpseudocode}
+\usepackage{epsfig}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+% Inputs, Initialize settings
+\algnewcommand{\Inputs}[1]{%
+  \State \textbf{Inputs:}
+  \Statex \hspace*{\algorithmicindent}\parbox[t]{.8\linewidth}{\raggedright #1}
+}
+\algnewcommand{\Initialize}[1]{%
+  \State \textbf{Initialize:}
+  \Statex \hspace*{\algorithmicindent}\parbox[t]{.8\linewidth}{\raggedright #1}
+}
+
+\title{DS Written Homework 3}
+\author{Student ID: b10201054}
+
+\begin{document}
+\maketitle
+
+\section{Splay Tree}
+
+
+\section{Time complexity of AVL tree and Splay tree}    
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    \textbf{Search} & \textbf{Binary Search Tree} & \textbf{Splay Tree} & \textbf{AVL Tree} \\ \hline
+    Worst Case      & $O(n)$                        & Amortized $O(\log n)$ / $O(n)$               & $O(\log n)$          \\ \hline
+    Average         & $O(n)$                        & $O(\log n)$            & $O(\log n)$          \\ \hline
+    \end{tabular}
+    \caption{Time complexity of search in different trees}
+\end{table}
+
+
+\section{Data Structure for Different Scenarios}    
+
+\begin{enumerate}
+    \item[(a)] Splay tree; The root of splay tree is last accessed node. Since it frequently accesses a few popular keywords, the height of those keywords will be near the root, which helps us find them quickly.
+    \item[(b)] Queue; Queue has the property 'first in first out'. Since we need to print jobs in the order they are received, 'first in first out' is what we need the most.
+    \item[(c)] AVL tree; AVL tree is a balanced BST, whose search, insert, delete have the steady time complexity $O(\log n)$ even in the worst case. 
+    \item[(d)] Stack; Undo means to cancel the last step we have done. Stack has the property 'last-in, first-out', which matches the undo function needs.
+\end{enumerate}
+
+\section{AVL Tree}
+
+
+
+\section{Amortized Analysis}
+First we named the stack S, with its size $|S|=n$.
+\begin{enumerate}
+    \item[(a)] The worst case time complexity of MultiPop is $\min(n, k)$. We know that the time complexity of Pop is $O(1)$. MultiPop(k) repeats $\min(n, k)$ times Pop, hence the time complexity of MultiPop(k) is $\min(n, k) \times O(1) = O(\min(n, k))$
+    \item[(b)] Suppose that there are $n_{push}, n_{pop}, n_{multipop}$ times of Push, Pop, MultiPop to execute. Note that the legal Pop or MultiPop can only execute when the stack is not empty, we can find that the Push operation needs to be executed same as or more than Pop + MultiPop.
+    That is, $n_{pop} + n_{multipop}\leq n_{push}$.\\
+    The total time complexity is $T(n) = n_{push} + n_{pop} + n_{multipop} \leq 2\cdot n_{push} = O(n)$\\
+    Hence, the amortized time complexity of an operation is $O(n)/n = O(1)$
+\end{enumerate}
+
+\section{Algorithm Design}
+
+\begin{algorithm}
+    \caption{Find successor}
+    \KwIn{x, T.root}
+    \KwOut{the successor of x}
+    n = T.root
+    succ = None
+    \While{n is not None}
+    {
+        \uIf{$x < n.value$}
+        {
+            succ = n.value\\
+            n = n.left
+        }
+        \uElseIf{$x \geq n.value$}
+        {
+            n = n.right
+        }
+    }
+    \uIf{succ is not None}
+    {
+        \Return succ
+    }
+    \uElse 
+    {
+        \Return "cannot find successor in the tree"
+    }
+\end{algorithm}
+
+\end{document}
