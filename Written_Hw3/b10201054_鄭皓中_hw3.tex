@@ -32,6 +32,29 @@
 
 \section{Splay Tree}
 
+\begin{enumerate}
+    \item[(a)] 
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{Splaytree1.png}
+            \caption{Splaytree(a)}
+        \end{figure}
+        
+    \item[(b)]
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{Splaytree2.png}
+            \caption{Splaytree(b)}
+        \end{figure}
+    
+    \item[(c)]
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{Splaytree3.png}
+            \caption{Splaytree(c)}
+        \end{figure}
+    
+\end{enumerate}
 
 \section{Time complexity of AVL tree and Splay tree}    
 
@@ -58,9 +81,30 @@
 
 \section{AVL Tree}
 
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{AVLtree1.png}
+    \caption{AVL Tree}
+\end{figure}
+The AVL tree we consider is in Figure 4.\\
+Before insertion, the height of each subtree/node named $h_{tree\_name/node\_name}$.\\
+After insertion, the height of each subtree/node named $h_{tree\_name/node\_name}'$.\\
+After we balance the tree, the height of each subtree/node named $h_{tree\_name/node\_name}''$.
+There are four unbalanced cases in AVL Tree after an insertion: LL, LR, RL, RR.
+\begin{enumerate}
+    \item LL type: Before insertion, tree height $h_{x} = h_{A} + 2$. After insertion, $h_{A}' = h_{A} + 1$. After right rotation, the tree is balanced. Compute the tree height after balanced, $h_{y}'' = h_{A}' + 1 = h_{x}$. Hence, no extra rotation needed to balance the tree.
+    \item LR type: Before insertion, tree height $h_{x} = h_{A} + 2$. Since the tree is unbalanced at node x after insertion, we have $h_{A} = \max(h_{B}, h_{C}) + 1$ and $h_{D} = \max(h_{B}, h_{C})$. After we balance the tree, the new tree height 
+        $$h_{z}'' = \max(\max(h_{A}, h_{B} + 1) + 1, \max(h_{C} + 1, h_{D}) + 1) + 1 = h_{A} + 2 = h_{x}$$
+        Hence, no extra rotation needed to balance the tree.
+    \item RL type: Before insertion, tree height $h_{x} = h_{D} + 2$. Since the tree is unbalanced at node x after insertion, we have $h_{D} = \max(h_{B}, h_{C}) + 1$ and $h_{A} = \max(h_{B}, h_{C})$. After we balance the tree, the new tree height 
+        $$h_{z}'' = \max(\max(h_{A}, h_{B} + 1) + 1, \max(h_{C} + 1, h_{D}) + 1) + 1 = h_{D} + 2 = h_{x}$$
+        Hence, no extra rotation needed to balance the tree.
+    \item RR type: Before insertion, tree height $h_{x} = h_{A} + 2$. After insertion, $h_{C}' = h_{C} + 1$. After left rotation, the tree is balanced. Compute the tree height after balanced, $h_{y}'' = h_{C}' + 1 = h_{x}$. Hence, no extra rotation needed to balance the tree.
+\end{enumerate}
+From the above four cases, we can find that after a single/double rotation, no extra rotation needed to balance the tree.
 
 \section{Amortized Analysis}
+
 First we named the stack S, with its size $|S|=n$.
 \begin{enumerate}
     \item[(a)] The worst case time complexity of MultiPop is $\min(n, k)$. We know that the time complexity of Pop is $O(1)$. MultiPop(k) repeats $\min(n, k)$ times Pop, hence the time complexity of MultiPop(k) is $\min(n, k) \times O(1) = O(\min(n, k))$
