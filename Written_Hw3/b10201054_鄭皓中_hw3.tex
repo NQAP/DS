@@ -57,13 +57,17 @@
 \end{enumerate}
 
 \section{Time complexity of AVL tree and Splay tree}    
-
+The worst case of BST and Splay tree is a sorted single linked-list, hence the time complexity is $O(n)$.\\
+Since the AVL tree is self-balanced tree, the tree height is at most $O(\log n)$, which means the worst case of searching is $O(\log n)$.\\
+The average(amortized) cost of Splay tree is $O(\log n)$, which is proved in the Splay tree handout.\\
+The average(amortized) cost of AVL tree is $O(\log n)$. Since it is self-balanced, the tree height is at most $O(\log n)$, the successful search and unsuccessful search are limited by the tree height.
+Hence the searching time complexity is $O(\log n)$.
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|}
     \hline
     \textbf{Search} & \textbf{Binary Search Tree} & \textbf{Splay Tree} & \textbf{AVL Tree} \\ \hline
-    Worst Case      & $O(n)$                        & Amortized $O(\log n)$ / $O(n)$               & $O(\log n)$          \\ \hline
+    Worst Case      & $O(n)$                        & $O(n)$               & $O(\log n)$          \\ \hline
     Average         & $O(n)$                        & $O(\log n)$            & $O(\log n)$          \\ \hline
     \end{tabular}
     \caption{Time complexity of search in different trees}
