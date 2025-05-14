@@ -41,7 +41,11 @@
 
 \section{AA Tree}
 
-
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.7\linewidth]{Splaytree1.png}
+%     \caption{Splaytree(a)}
+% \end{figure}
 
 \section{Reb-Black Tree}    
 
@@ -73,15 +77,50 @@
 
 \begin{enumerate}
     \item[(a)] 
-        
+        Since red-black tree is a binary tree, the maximum number of nodes in a red-black tree of height h is $M_{h} = 2^{h - 1} - 1$.
     \item[(b)]
-    
+        % \begin{figure}[H]
+        %     \centering
+        %     \includegraphics[width=0.7\linewidth]{Splaytree3.png}
+        %     \caption{Splaytree(c)}
+        % \end{figure}
     \item[(c)]
-     
-    \item[(d)] 
-    
-    \item[(e)]
+        Consider the node $v$ in the red-black tree, let $h(v), bh(v)$ be its height ,black height, and $N(v)$ is the minimum nodes of the subtree with its root $v$.
 
+        Claim: the subtree with its root $v$ has at least $N(v) = 2^{bh(v) - 1} - 1$ nodes.
+        \begin{enumerate}
+            \item[1.] If $h(v) = 1$, v is NIL, we have $bh(v) = 1 \Rightarrow N(v) = 2^{1 - 1} - 1 = 0 $
+            \item[2.] Induction assumption: $h(v) = k$ implies $N(v) = 2^{bh(v) -1} - 1$.
+            \item[3.] 
+                When $h(v') = k+1$, the node $v'$ has childs $v_1, v_2$ with there height is either $bh(v')$ or $bh(v')-1$.
+                By induction assumption we know 
+                \[
+                    N(v_1) = N(v_2) = 2^{bh(v')-2}-1
+                \]
+                Hence, $N(v')=N(v_1) + N(v_2) + 1$ gives us 
+                \[
+                    N(v') = 2^{bh(v')-2}-1+2^{bh(v')-2}-1+1 = 2^{bh(v')-1}-1
+                \]
+                By induction, the claim is proved.
+        \end{enumerate}
+        Now suppose $v$ is the root of the red-black tree. By the property of red-black tree, we have 
+        \[
+            \frac{h(v)-1}{2} \leq bh(v)-1 \leq h(v)-1
+        \]
+        The minimum nodes number occured when $bh(v)-1 = \frac{h(v)-1}{2}$, which means 
+        \[
+            N_{h} = 2^{\frac{h-1}{2}}-1
+        \]
+    \item[(d)] 
+        With tree height h, we have $2^{\frac{h-1}{2}}-1 \leq n \leq 2^{h - 1} - 1$, which gives us 
+        \[
+            \log_{2}(n + 1) + 1\leq h \leq 2\log_{2}(n+1) + 1
+        \]
+    \item[(e)]
+        Red-black tree height interval is $\left[\log_{2}(n + 1) + 1, 2\log_{2}(n+1) + 1\right]$.
+
+        AVL tree height interval is $\left[\log_{2}(n + 1) + 1, \log_{\phi}\sqrt{5}(n+\epsilon) - 2\right]$, where $\phi = \frac{\sqrt{5}+1}{2}$.
+        One can find that the RB tree interval is greater than AVL tree when n is large. Hence, AVL trees enforces a stricter constraint on height.
 \end{enumerate}
 
 \section{2-4 Tree}
