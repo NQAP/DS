@@ -41,139 +41,205 @@
 
 \section{AA Tree}
 
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.7\linewidth]{Splaytree1.png}
-%     \caption{Splaytree(a)}
-% \end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{AATree.jpg}
+    \caption{Splaytree(a)}
+\end{figure}
 
 \section{Reb-Black Tree}    
 
-% \begin{enumerate}
-%     \item[(a)] 
-%         \begin{figure}[H]
-%             \centering
-%             \includegraphics[width=0.7\linewidth]{Splaytree1.png}
-%             \caption{Splaytree(a)}
-%         \end{figure}
+\begin{enumerate}
+    \item[(a)] 
+        Result:
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{RBtree-1.jpg}
+            \caption{RBTree to 2-3-4Tree}
+        \end{figure}
         
-%     \item[(b)]
-%         \begin{figure}[H]
-%             \centering
-%             \includegraphics[width=0.7\linewidth]{Splaytree2.png}
-%             \caption{Splaytree(b)}
-%         \end{figure}
+    \item[(b)]
+        Result:
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{RBtree2.jpg}
+            \caption{Insert 47}
+        \end{figure}
     
-%     \item[(c)]
-%         \begin{figure}[H]
-%             \centering
-%             \includegraphics[width=0.7\linewidth]{Splaytree3.png}
-%             \caption{Splaytree(c)}
-%         \end{figure}
+    \item[(c)]
+        Result:
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{RBtree3.jpg}
+            \caption{Delete 16}
+        \end{figure}
     
-% \end{enumerate}
+\end{enumerate}
 
 \section{The Height of Red-Black Tree}    
 
 \begin{enumerate}
     \item[(a)] 
-        Since red-black tree is a binary tree, the maximum number of nodes in a red-black tree of height h is $M_{h} = 2^{h - 1} - 1$.
+        Since red-black tree is a binary tree, the maximum number of nodes in a red-black tree of height h is $M_{h} = 2^{h} - 1$.
     \item[(b)]
-        % \begin{figure}[H]
-        %     \centering
-        %     \includegraphics[width=0.7\linewidth]{Splaytree3.png}
-        %     \caption{Splaytree(c)}
-        % \end{figure}
+        $h = 2,3,4,5$
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{RBtree(b).jpg}
+            \caption{Minimum trees}
+        \end{figure}
     \item[(c)]
         Consider the node $v$ in the red-black tree, let $h(v), bh(v)$ be its height ,black height, and $N(v)$ is the minimum nodes of the subtree with its root $v$.
 
-        Claim: the subtree with its root $v$ has at least $N(v) = 2^{bh(v) - 1} - 1$ nodes.
+        Claim: the subtree with its root $v$ has at least $N(v) = 2^{bh(v)} - 1$ nodes.
         \begin{enumerate}
-            \item[1.] If $h(v) = 1$, v is NIL, we have $bh(v) = 1 \Rightarrow N(v) = 2^{1 - 1} - 1 = 0 $
-            \item[2.] Induction assumption: $h(v) = k$ implies $N(v) = 2^{bh(v) -1} - 1$.
+            \item[1.] If $h(v) = 1$, v is root and leaf, we have $bh(v) = 1 \Rightarrow N(v) = 2^{1} - 1 = 1 $
+            \item[2.] Induction assumption: $h(v) = k$ implies $N(v) = 2^{bh(v)} - 1$.
             \item[3.] 
                 When $h(v') = k+1$, the node $v'$ has childs $v_1, v_2$ with there height is either $bh(v')$ or $bh(v')-1$.
                 By induction assumption we know 
                 \[
-                    N(v_1) = N(v_2) = 2^{bh(v')-2}-1
+                    N(v_1) = N(v_2) = 2^{bh(v')-1}-1
                 \]
                 Hence, $N(v')=N(v_1) + N(v_2) + 1$ gives us 
                 \[
-                    N(v') = 2^{bh(v')-2}-1+2^{bh(v')-2}-1+1 = 2^{bh(v')-1}-1
+                    N(v') = 2^{bh(v')-1}-1+2^{bh(v')-1}-1+1 = 2^{bh(v')}-1
                 \]
                 By induction, the claim is proved.
         \end{enumerate}
         Now suppose $v$ is the root of the red-black tree. By the property of red-black tree, we have 
         \[
-            \frac{h(v)-1}{2} \leq bh(v)-1 \leq h(v)-1
+            \frac{h(v)}{2} \leq bh(v) \leq h(v)
         \]
-        The minimum nodes number occured when $bh(v)-1 = \frac{h(v)-1}{2}$, which means 
+        The minimum nodes number occured when $bh(v) = \left\lceil \frac{h(v)}{2}\right\rceil $, which means 
         \[
-            N_{h} = 2^{\frac{h-1}{2}}-1
+            N_{h} = 2^{\frac{h}{2}}-1
         \]
+        Note that we need to meet the tree height, we need to add red nodes. For each red nodes we add as internal nodes, we need an extra black node to balance. 
+        The minimum red nodes number is $h - bh(root)$, thus $$N_{h} = 2^{\left\lceil \frac{h}{2}\right\rceil } - 1 + h - bh(root) + (h - bh(root) - 1)$$
+
+
     \item[(d)] 
-        With tree height h, we have $2^{\frac{h-1}{2}}-1 \leq n \leq 2^{h - 1} - 1$, which gives us 
+        With tree height h, we have $2^{\left\lceil \frac{h}{2}\right\rceil }-1 \leq n \leq 2^{h} - 1$, which gives us 
         \[
-            \log_{2}(n + 1) + 1\leq h \leq 2\log_{2}(n+1) + 1
+            \log_{2}(n+1) \leq h \leq 2\log_{2}(n+1)
         \]
     \item[(e)]
-        Red-black tree height interval is $\left[\log_{2}(n + 1) + 1, 2\log_{2}(n+1) + 1\right]$.
+        Red-black tree height interval is $\left[\log_{2}(n + 1), 2\log_{2}(n+1)\right]$.
 
-        AVL tree height interval is $\left[\log_{2}(n + 1) + 1, \log_{\phi}\sqrt{5}(n+\epsilon) - 2\right]$, where $\phi = \frac{\sqrt{5}+1}{2}$.
-        One can find that the RB tree interval is greater than AVL tree when n is large. Hence, AVL trees enforces a stricter constraint on height.
+        AVL tree height interval is $\left[\log_{2}(n + 1), \log_{\phi}\sqrt{5}(n+\epsilon)-2\right]$, where $\phi = \frac{\sqrt{5}+1}{2}$.
+        One can find that the RB tree interval is larger than AVL tree when n is large. Hence, AVL trees enforces a stricter constraint on height.
 \end{enumerate}
 
 \section{2-4 Tree}
 
-% \begin{enumerate}
-%     \item[(a)] 
-%         \begin{figure}[H]
-%             \centering
-%             \includegraphics[width=0.7\linewidth]{Splaytree1.png}
-%             \caption{Splaytree(a)}
-%         \end{figure}
-        
-%     \item[(b)]
-%         \begin{figure}[H]
-%             \centering
-%             \includegraphics[width=0.7\linewidth]{Splaytree2.png}
-%             \caption{Splaytree(b)}
-%         \end{figure}
+\begin{enumerate}
+    \item[(a)] 
+        The follwing figure is result.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\linewidth]{2-4tree1.jpg}
+            \caption{2-4 Tree}
+        \end{figure}
     
-% \end{enumerate}
+    \item[(b)]
+        The follwing figure is result after deleting 1.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\linewidth]{2-4tree2.jpg}
+            \caption{Delete 1}
+        \end{figure}
+
+\end{enumerate}
 
 \section{Possible Red-Black Tree}
 
 \begin{enumerate}
     \item[(a)] 
-        
+        Impossible. $25 \rightarrow 46 \rightarrow 81 \rightarrow 57$ means the value of the node is between 46~81.
+        Then the next node we cannot find 87.
     \item[(b)]
-    
+        This figure shows the possible red-black tree in this argument.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{RBtree5-2.jpg}
+            \caption{(a) Separate chaining}
+        \end{figure}
     \item[(c)]
-
+        The yellow area must be filled by the number between 83 and 86, but there are only 84 and 85.
+        Hence, we cannot find a possible red-black tree in this argument.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{RBtree5-3.jpg}
+            \caption{(a) Separate chaining}
+        \end{figure}
 \end{enumerate}
 
 \section{Hash}
 
-\begin{enumerate}
-    \item[(a)] 
-        
-    \item[(b)]
-    
-    \item[(c)]
-     
-    \item[(d)] 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{hash4.jpg}
+    \caption{(a) Separate chaining}
+\end{figure}
 
-\end{enumerate}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.25\linewidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{hash2.jpg}
+        \caption{(b)}
+    \end{minipage}%
+    \begin{minipage}[t]{0.25\linewidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{hash3.jpg}
+        \caption{(c)}
+    \end{minipage}
+    \begin{minipage}[t]{0.25\linewidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{hash1.jpg}
+        \caption{(d)}
+    \end{minipage}
+\end{figure}
 
 \section{Fill-in-the-blank questions}
 
 \begin{enumerate}
     \item 
+        The maximum possible height occured when the tree is filled with 2-node, then $y = \left\lceil \log_{2}2025\right\rceil = 11$.
+
+        The minimum possible height occured when the tree is filled with 4-node, then $x = \left\lceil \log_{4}2025\right\rceil  = \left\lceil \frac{1}{2}\log_{2}2025\right\rceil = 6$. 
+
+        $(y-x) \mod 5 \equiv 0$
     \item 
+        The maximum possible red node number is $2^4 + 2^2 = 20$. Since we want maximum possible red nodes, we make the red leaves as many as possible.
+        The red-black tree of height 5 has at most $2^4 = 16$ leaves. 
+        
+        Now consider the internal nodes. By the property "every red node must have either 0 or 2 black children", we know that there must be a black node between two red nodes.
+        Hence, the next layer that red node can exist is the 3rd layer, which has $2^2 = 4$ nodes.
+
+        Similarly, the next layer is the 1st layer. But another property "root must be black" gives us that 1st layer cannot be red, so the red nodes are $2^4 + 2^2 = 20$.
+
+        The minimum possible red node number is 0.
+
+        $(y-2x) \mod 5 \equiv 0$
     \item 
+        The maximum size is $y = 2^{2025} -1$.
+
+        The minimum size is $x = 2^{2024}$, which means the height 2025 has only a node.
+
+        $(x+y) \mod 5 \equiv 2$
     \item 
+        The binary heap after insertion. In the figure we can find 5 is at depth 3.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\linewidth]{binary_heap1.png}
+            \caption{Binary heap}
+        \end{figure}
     \item 
+        Let's call the origin binary min heap $H_1$. We can maintain another binary min heap $H_2$.
+        For each element we visit in $H_1$, push its chilren into $H_2$, then pop the first element of $H_2$.
+        Then visit the element we popped in $H_1$. Repeat until the 5-th element popped from $H_2$.
 \end{enumerate}
 
 \end{document}
