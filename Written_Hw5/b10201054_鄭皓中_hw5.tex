@@ -864,6 +864,14 @@
             \item [iv.]
                 Union only change the minimum number of the heap, so that $\phi(H') - \phi(H) = 0$. Hence, the amortized cost is $O(1)$.
         \end{enumerate}
+    \newpage
+    \item [(b)]
+        The minimum number of nodes can be recognized as the maximum number of nodes can be deleted from a binary tree without breaking the structure.
+        For the degree = 11 tree, the node number is $\sum_{i=0}^{10}(1 + \sum_{j=0}^{i}(2^j))$. Since we can mark a node twice, we can delete the largest and second branches.
+        That is, the number is $1 + 1 + \sum_{i=2}^{10}(\sum_{j=0}^{i-2}(1+\sum_{k=0}^{j}(2^k)))$.
+
+        Observe the recursion, we can find that the number of nodes are in the sequence 1, 1, 1, 2, 3, 5,... which is also a Fibonacci sequence.
+        Hence the degree 11 tree is the Fibonacci number $F_{12} + 1 = 145$.
 \end{enumerate}
 
 \section{Disjoint Set}
