@@ -1,13 +1,12 @@
 import json
 import time
 import argparse
-import heapq
 
 # --- TODO START --- #
 # You can define any class or function
 # You can import any python standard library : https://docs.python.org/3/library/
 # However, you are not allowed to import any libraries other than python standard library, (such as numpy)
-
+import heapq
 # --- TODO END --- #
 
 
